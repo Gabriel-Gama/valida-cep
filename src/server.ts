@@ -11,9 +11,9 @@ app.get('/validationCep/:cep', async (request, response) => {
         .get(`https://busca-cep-production.up.railway.app/cep/${cep}`)
         .then((data) => {
             if(data && data.data && data.data?.result && !data.data.result.localidade ){
-                response.json('não existe')
+                response.json('não existe');
             }else{
-                response.json("existe")
+                response.json("existe");
             }
         }).catch(() => {
             console.log('Sorry! This CEP is not valid')
